@@ -14,24 +14,30 @@ def check(player, pc):
     return "DRAW"
 
 
-def game(choice):
-    if choice == 1:
-        print("Rock[1], Paper[2], Scissor[3]: ")
-        user = int(input())
-        random_number = number_generate()
-        if random_number == 1:
-            print("PC choose: Rock")
-        elif random_number == 2:
-            print("PC choose: Paper")
-        elif random_number == 3:
-            print("PC choose: Scissor")
-        decision = check(user, random_number)
-        return decision
-    else:
-        return "Thank You"
+def game():
+    print("Rock[1], Paper[2], Scissor[3]: ")
+    user = int(input())
+    random_number = number_generate()
+    if random_number == 1:
+        print("PC choose: Rock")
+    elif random_number == 2:
+        print("PC choose: Paper")
+    elif random_number == 3:
+        print("PC choose: Scissor")
+    decision = check(user, random_number)
+    return decision
 
 
 print("Start[1] | Exit[0]")
 choice = int(input())
-result = game(choice)
-print(result)
+if choice == 1:
+    while True:
+        result = game()
+        print(result)
+        print("Try Again ?? >> YES[1] | NO[0]")
+        choice = int(input())
+        if choice == 1:
+            continue
+        else:
+            break
+print("Thank You")
