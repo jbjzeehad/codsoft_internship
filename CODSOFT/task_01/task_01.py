@@ -31,10 +31,9 @@ def check(player, pc):
 #        return "YOU WIN"
 
 
-print("Enter your number: ")
+print("Rock[1], Paper[2], Scissor[3]: ")
 user = int(input())
 random_number = number_generate()
-print(user)
-print(random_number)
+print("PC choose: " + str(random_number))
 decision = check(user, random_number)
 print(decision)
