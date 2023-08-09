@@ -1,1 +1,30 @@
-print(2+9)
+import random
+
+
+def number_generate():
+    random_number = random.randint(1, 3)
+    return random_number
+
+
+def check(player, pc):
+    if player == 1 and pc == 3:
+        return "YOU WIN"
+    elif player == 1 and pc == 2:
+        return "PC WIN"
+    elif player == 2 and pc == 1:
+        return "YOU WIN"
+    elif player == 2 and pc == 3:
+        return "PC WIN"
+    elif player == 3 and pc == 1:
+        return "PC WIN"
+    elif player == 3 and pc == 2:
+        return "YOU WIN"
+
+
+print("Enter your number: ")
+user = int(input())
+random_number = number_generate()
+print(user)
+print(random_number)
+decision = check(user, random_number)
+print(decision)
