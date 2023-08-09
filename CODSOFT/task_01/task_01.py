@@ -7,18 +7,28 @@ def number_generate():
 
 
 def check(player, pc):
-    if player == 1 and pc == 3:
+    if (player == 1 and pc == 3) or (player == 2 and pc == 1) or (player == 3 and pc == 2):
         return "YOU WIN"
-    elif player == 1 and pc == 2:
+    if (player == 1 and pc == 2) or (player == 2 and pc == 3) or (player == 3 and pc == 1):
         return "PC WIN"
-    elif player == 2 and pc == 1:
-        return "YOU WIN"
-    elif player == 2 and pc == 3:
-        return "PC WIN"
-    elif player == 3 and pc == 1:
-        return "PC WIN"
-    elif player == 3 and pc == 2:
-        return "YOU WIN"
+    return "DRAW"
+
+#    else:
+#        return "PC WIN"
+#    elif player == 1 and pc == 2:
+#        return "PC WIN"
+#    if player == 2 and pc == 1:
+#        return "YOU WIN"
+#    else:
+#       return "PC WIN"
+#    elif player == 2 and pc == 3:
+#        return "PC WIN"
+#    if player == 3 and pc == 1:
+#       return "PC WIN"
+#    else:
+#        return "YOU WIN"
+#    elif player == 3 and pc == 2:
+#        return "YOU WIN"
 
 
 print("Enter your number: ")
