@@ -54,21 +54,21 @@ rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
 
 image1 = PhotoImage(file=r"F:\codsoft_internship\CODSOFT\task_01\rock_img.png")
 rock_img = image1.subsample(3, 3)
-Button(rps_wind, text='ROCK', font=('Cooper Black', 20), image=rock_img,
-       compound=TOP).pack(side=LEFT, padx=50)  # button padding from window, side from window
+Button(rps_wind, text='ROCK', activebackground='green', bd=2, fg='teal', font=('Cooper Black', 20), image=rock_img, compound=TOP).pack(
+    side=LEFT, ipadx=100, padx=10)  # button padding from window, side from window
 
 image2 = PhotoImage(
     file=r"F:\codsoft_internship\CODSOFT\task_01\paper_img.png")
 paper_img = image2.subsample(3, 3)
-Button(rps_wind, text='PAPER', font=('Cooper Black', 20),
-       image=paper_img, compound=TOP).pack(side=LEFT, padx=50)
+Button(rps_wind, bd=2, text='PAPER', activebackground='green', fg='orange', font=('Cooper Black', 20),
+       image=paper_img, compound=TOP).pack(side=LEFT, padx=10)
 
 
 image3 = PhotoImage(
     file=r"F:\codsoft_internship\CODSOFT\task_01\scissor_img.png")
 scissor_img = image3.subsample(3, 3)
-Button(rps_wind, text='SCISSOR', font=('Cooper Black', 20),
-       image=scissor_img, compound=TOP).pack(side=LEFT, padx=50)
+Button(rps_wind, bd=2, fg='indigo', activebackground='green', text='SCISSOR', font=('Cooper Black', 20),
+       image=scissor_img, compound=TOP).pack(side=LEFT, padx=10)
 
 
 rps_wind.mainloop()
