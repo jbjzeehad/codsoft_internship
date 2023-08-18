@@ -55,20 +55,38 @@ rps_wind.geometry("500x550")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-
+'''
 strt_wind = Frame(rps_wind)
 inst_wind = Frame(rps_wind)
 game_wind = Frame(rps_wind)
 exit_wind = Frame(rps_wind)
+'''
+
+Button(rps_wind, text="strt window",
+       command=strt_wind).grid(row=4, column=0)
 
 
-Label(rps_wind,text='',font=).grid(row=0,column=1)
-Label(rps_wind,text='',font=).grid(row=1,column=0)
-Label(rps_wind,text='',font=).grid(row=1,column=1)
-Label(rps_wind,text='',font=).grid(row=1,column=2)
-Label(rps_wind,text='',font=).grid(row=2,column=0)
-Label(rps_wind,text='',font=).grid(row=2,column=1)
-Label(rps_wind,text='',font=).grid(row=2,column=2)
+def strt_wind():
+    rps_wind = Tk()
+    rps_wind.geometry("500x550")
+    rps_wind.resizable(False, False)
+    rps_wind.title("RPS Game")
+    rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+    Button(rps_wind, command=exit_wind())
+    rps_wind.mainloop()
+
+
+def exit_wind():
+    return 0
+
+
+Label(rps_wind, text='pc pic', font=('consolas', 20)).grid(row=0, column=1)
+Label(rps_wind, text='pcr', font=('consolas', 20)).grid(row=1, column=0)
+Label(rps_wind, text='pcw', font=('consolas', 20)).grid(row=1, column=1)
+Label(rps_wind, text='pcp', font=('consolas', 20)).grid(row=1, column=2)
+Label(rps_wind, text='up', font=('consolas', 20)).grid(row=2, column=0)
+Label(rps_wind, text='uw', font=('consolas', 20)).grid(row=2, column=1)
+Label(rps_wind, text='ur', font=('consolas', 20)).grid(row=2, column=2)
 
 image1 = PhotoImage(file=r"F:\codsoft_internship\CODSOFT\task_01\rock_img.png")
 rock_img = image1.subsample(4, 4)
