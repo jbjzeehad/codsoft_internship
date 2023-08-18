@@ -23,7 +23,7 @@ def div_cal(num1, num2):
 
 
 cal_sc = Tk()
-cal_sc.geometry("440x440")
+cal_sc.geometry("440x450")
 cal_sc.resizable(False, False)
 cal_sc.title('Calculator')
 cal_sc.iconbitmap(r'F:\codsoft_internship\CODSOFT\task_02\cal_bg.ico')
