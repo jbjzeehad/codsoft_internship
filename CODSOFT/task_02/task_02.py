@@ -58,11 +58,11 @@ Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1
        text='3').grid(row=3, column=2)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='-').grid(row=3, column=3)
-Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
+Button(cal_sc, background='black', fg='red', width=10, height=3, borderwidth=1,
        text='C').grid(row=4, column=0)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='0').grid(row=4, column=1, pady=1)
-Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
+Button(cal_sc, background='black', fg='orange', width=10, height=3, borderwidth=1,
        text='=').grid(row=4, column=2)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='+').grid(row=4, column=3)
