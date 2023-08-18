@@ -1,4 +1,8 @@
 
+
+# @ Jubayer Bin Jaman | Codsoft
+
+
 from tkinter import *
 
 
@@ -34,8 +38,8 @@ cal_sc_output = Text(cal_sc, background='black', fg='white', width=29, height=3,
 cal_sc_output.grid(row=0, column=0, columnspan=4, padx=1, pady=2)
 
 
-Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
-       text='7').grid(row=1, column=0)
+seven = Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
+               text='7').grid(row=1, column=0)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='8').grid(row=1, column=1, pady=1)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
@@ -58,12 +62,12 @@ Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1
        text='3').grid(row=3, column=2)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='-').grid(row=3, column=3)
-Button(cal_sc, background='black', fg='red', width=10, height=3, borderwidth=1,
-       text='C').grid(row=4, column=0)
+Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
+       text='C', activebackground='cyan').grid(row=4, column=0)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='0').grid(row=4, column=1, pady=1)
-Button(cal_sc, background='black', fg='orange', width=10, height=3, borderwidth=1,
-       text='=').grid(row=4, column=2)
+Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
+       text='=', activebackground='orange').grid(row=4, column=2)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='+').grid(row=4, column=3)
 

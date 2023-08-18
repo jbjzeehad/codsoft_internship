@@ -1,3 +1,8 @@
+
+
+# @ Jubayer Bin Jaman | Codsoft
+
+
 import random
 from tkinter import *
 
@@ -50,6 +55,9 @@ rps_wind.geometry("900x550")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+
+strt_wind = Frame(rps_wind)
+game_wind = Frame(rps_wind)
 
 
 image1 = PhotoImage(file=r"F:\codsoft_internship\CODSOFT\task_01\rock_img.png")
