@@ -62,6 +62,14 @@ game_wind = Frame(rps_wind)
 exit_wind = Frame(rps_wind)
 
 
+Label(rps_wind,text='',font=).grid(row=0,column=1)
+Label(rps_wind,text='',font=).grid(row=1,column=0)
+Label(rps_wind,text='',font=).grid(row=1,column=1)
+Label(rps_wind,text='',font=).grid(row=1,column=2)
+Label(rps_wind,text='',font=).grid(row=2,column=0)
+Label(rps_wind,text='',font=).grid(row=2,column=1)
+Label(rps_wind,text='',font=).grid(row=2,column=2)
+
 image1 = PhotoImage(file=r"F:\codsoft_internship\CODSOFT\task_01\rock_img.png")
 rock_img = image1.subsample(4, 4)
 Button(rps_wind, text='ROCK', activebackground='green', bd=2, fg='teal', font=('Cooper Black', 15),
