@@ -69,6 +69,6 @@ Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
        text='=', activebackground='orange').grid(row=4, column=2)
 Button(cal_sc, background='black', fg='white', width=10, height=3, borderwidth=1,
-       text='+').grid(row=4, column=3)
+       text='+', activebackground='green').grid(row=4, column=3)
 
 cal_sc.mainloop()

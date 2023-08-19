@@ -55,15 +55,10 @@ rps_wind.geometry("500x550")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-'''
-strt_wind = Frame(rps_wind)
-inst_wind = Frame(rps_wind)
-game_wind = Frame(rps_wind)
-exit_wind = Frame(rps_wind)
-'''
+
 
 Button(rps_wind, text="strt window",
-       command=strt_wind).grid(row=4, column=0)
+       command=lambda: [rps_wind.destroy(), strt_wind()]).grid(row=4, column=0)
 
 
 def strt_wind():
@@ -71,7 +66,8 @@ def strt_wind():
     rps_wind.geometry("500x550")
     rps_wind.resizable(False, False)
     rps_wind.title("RPS Game")
-    rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+    rps_wind.iconbitmap(
+        r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
     Button(rps_wind, command=exit_wind())
     rps_wind.mainloop()
 
