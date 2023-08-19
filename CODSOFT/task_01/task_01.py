@@ -55,12 +55,17 @@ rps_wind.geometry("500x550")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-
+# rps_wind.config(bg='bg_img')
+'''
+bg_img = PhotoImage(file=r'F:\codsoft_internship\CODSOFT\task_01\bg.jpg')
+label2 = Label(rps_wind, image=bg_img)
+label2.place(x=0, y=0)
+'''
 game_logo = PhotoImage(
     file=r'F:\codsoft_internship\CODSOFT\task_01\rps_logo.png')
 label = Label(rps_wind, image=game_logo).pack()
 Button(rps_wind, text="strt window",
-       command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM)
+       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM)
 
 
 def instr_wind():
@@ -115,7 +120,16 @@ def game_wind():
 
 
 def exit_wind():
-    rps_wind.destroy()
+    rps_wind = Tk()
+    rps_wind.geometry("500x550")
+    rps_wind.resizable(False, False)
+    rps_wind.title("RPS Game")
+    rps_wind.iconbitmap(
+        r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+    Button(rps_wind, text="PLAY AAGAIN", command=lambda: [
+           rps_wind.destroy(), game_wind()]).pack(side=BOTTOM)
+    Button(rps_wind, text="EXIT", command=rps_wind.destroy).pack(side=TOP)
+    rps_wind.mainloop()
 
 
 rps_wind.mainloop()
