@@ -55,18 +55,19 @@ rps_wind.geometry("600x600")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-# rps_wind.config(bg='bg_img')
-'''
-bg_img = PhotoImage(file=r'F:\codsoft_internship\CODSOFT\task_01\bg.jpg')
-label2 = Label(rps_wind, image=bg_img)
-label2.place(x=0, y=0)
-'''
+
 bk_grnd = PhotoImage(
-    file="F:\codsoft_internship\CODSOFT\task_02\rps_logo.png")
+    file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png")
+
+
 label1 = Label(rps_wind, image=bk_grnd)
-label1.place(x=0, y=0)
-Button(rps_wind, text="strt window",
-       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM)
+label1.place(x=0, y=-50)
+
+start_img = PhotoImage(
+    file=r"F:\codsoft_internship\CODSOFT\task_01\start_btn.png")
+start_btn_img = start_img.subsample(3, 3)
+Button(rps_wind, font=('Verdana', 20), borderwidth=0, image=start_btn_img, compound=TOP,
+       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM, pady=50,)
 
 
 def instr_wind():
@@ -127,9 +128,17 @@ def exit_wind():
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
         r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-    Button(rps_wind, text="PLAY AGAIN", command=lambda: [
-           rps_wind.destroy(), game_wind()]).pack(side=BOTTOM)
-    Button(rps_wind, text="EXIT", command=rps_wind.destroy).pack(side=TOP)
+    retry_img = PhotoImage(
+        file=r"F:\codsoft_internship\CODSOFT\task_01\retry_btn.png")
+    retry_btn_img = retry_img.subsample(3, 3)
+    Button(rps_wind, image=retry_btn_img, borderwidth=0, compound=TOP,
+           command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=80)
+
+    exit_img = PhotoImage(
+        file=r"F:\codsoft_internship\CODSOFT\task_01\exit_btn.png")
+    exit_btn_img = exit_img.subsample(3, 3)
+    Button(rps_wind, image=exit_btn_img, borderwidth=0, compound=TOP,
+           command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=80)
     rps_wind.mainloop()
 
 
