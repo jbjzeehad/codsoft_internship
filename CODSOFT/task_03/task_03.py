@@ -27,7 +27,7 @@ def weak():
     password = StringVar()
     password.set(final_pass)  # for showing pass on screen
     Entry(
-        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', borderwidth=0, state=DISABLED).grid(row=1, column=0, columnspan=3, pady=10)
+        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', disabledforeground='black', borderwidth=0, state=DISABLED).grid(row=1, column=0, columnspan=3, pady=10)
 
 # for meium password
 
@@ -41,7 +41,7 @@ def medium():
     password = StringVar()  # for showing pass on screen
     password.set(final_pass)
     Entry(
-        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', borderwidth=0, state=DISABLED).grid(row=1, column=0, columnspan=3, pady=10)
+        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', disabledforeground='black', borderwidth=0, state=DISABLED).grid(row=1, column=0, columnspan=3, pady=10)
 
 # for strong password
 
@@ -55,7 +55,7 @@ def strong():
     password = StringVar()
     password.set(final_pass)  # for showing pass on screen
     Entry(
-        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', borderwidth=0, state=DISABLED).grid(row=1, column=0,  columnspan=3, pady=10)
+        rpg_wid, textvariable=password, font=('console', 13, 'bold'), justify=CENTER, width=39, disabledbackground='white', disabledforeground='black', borderwidth=0, state=DISABLED).grid(row=1, column=0,  columnspan=3, pady=10)
 
 # for input pasword length
 
