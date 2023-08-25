@@ -40,21 +40,7 @@ start_img = PhotoImage(
     file=r"F:\codsoft_internship\CODSOFT\task_01\start_btn.png")
 start_btn_img = start_img.subsample(4, 4)
 Button(rps_wind, font=('Verdana', 20), borderwidth=0, image=start_btn_img, compound=TOP, background='#f9f7f0', activebackground='#f9f7f0',
-       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM, pady=50)
-
-
-def instr_wind():
-    print("ok")
-    rps_wind = Tk()
-    rps_wind.geometry("370x400")
-    rps_wind.resizable(False, False)
-    rps_wind.title("RPS Game")
-    rps_wind.iconbitmap(
-        r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-    rps_wind.config('white')
-    Button(rps_wind, text="START GAME", command=lambda: [
-           rps_wind.destroy(), game_wind()])
-    rps_wind.mainloop()
+       command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=50)
 
 
 def game_wind():
@@ -65,16 +51,21 @@ def game_wind():
     rps_wind.iconbitmap(
         r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
     rps_wind.config(bg='#f9f7f0')
-#    bk_grnd = PhotoImage(
-#        file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png")
-#    label1 = Label(rps_wind, image=bk_grnd)
-#    label1.place(x=0, y=-50)
+
+    global u_score
+    u_score = IntVar()
+    u_score = 0
+    global pc_score
+    pc_score = IntVar()
+    pc_score = 0
 
     def number_generate():
         random_number = random.randint(1, 3)
         return random_number
 
     def check(player, pc):
+        global u_score
+        global pc_score
 
         if (player == 1 and pc == 3) or (player == 2 and pc == 1) or (player == 3 and pc == 2):
 
@@ -86,8 +77,11 @@ def game_wind():
             pc_loss.set("LOSS")
             Entry(rps_wind, justify=CENTER, textvariable=pc_loss, font=(
                 'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=2)
-
-            return print("YOU WIN")
+            u_sc = IntVar()
+            u_score = u_score + 1
+            u_sc.set(u_score)
+            Entry(rps_wind, justify=CENTER, textvariable=u_sc, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=2)
 
         if (player == 1 and pc == 2) or (player == 2 and pc == 3) or (player == 3 and pc == 1):
             pc_win = StringVar()
@@ -98,8 +92,12 @@ def game_wind():
             u_loss.set("LOSS")
             Entry(rps_wind, justify=CENTER, textvariable=u_loss, font=(
                 'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
+            pc_sc = IntVar()
+            pc_score = pc_score+1
+            pc_sc.set(pc_score)
+            Entry(rps_wind, justify=CENTER, textvariable=pc_sc, font=('consolas', 20), width=4,
+                  borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=0)
 
-            return print("PC WIN")
         if (player == pc):
             pc_draw = StringVar()
             pc_draw.set("DRAW")
@@ -109,16 +107,21 @@ def game_wind():
             u_draw.set("DRAW")
             Entry(rps_wind, justify=CENTER, textvariable=u_draw, font=(
                 'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
-
-        return print("DRAW")
+        if u_score == 5 or pc_score == 5:
+            if u_score == 5:
+                rps_wind.destroy()
+                msg = "YOU WIN"
+                return exit_wind(msg)
+            else:
+                rps_wind.destroy()
+                msg = "PC WIN"
+                return exit_wind(msg)
 
     def game():
         global player
-#        print("Rock[1], Paper[2], Scissor[3]: ")
-#        user = int(input())
         random_number = number_generate()
         if random_number == 1:
-            print("PC choose: Rock")
+
             rk_image = PhotoImage(
                 file="F:\codsoft_internship\CODSOFT\\task_01\pc_rock_img.png")
             rk_img = rk_image.subsample(4, 4)
@@ -126,7 +129,7 @@ def game_wind():
             lbl.grid(row=1, column=1)
 
         elif random_number == 2:
-            print("PC choose: Paper")
+
             pr_image = PhotoImage(
                 file="F:\codsoft_internship\CODSOFT\\task_01\pc_paper_img.png")
             pr_img = pr_image.subsample(4, 4)
@@ -134,7 +137,7 @@ def game_wind():
             lbl.grid(row=1, column=1)
 
         elif random_number == 3:
-            print("PC choose: Scissor")
+
             sr_image = PhotoImage(
                 file="F:\codsoft_internship\CODSOFT\\task_01\\pc_scissor_img.png")
             sr_img = sr_image.subsample(4, 4)
@@ -142,7 +145,6 @@ def game_wind():
             lbl.grid(row=1, column=1)
         decision = check(player, random_number)
         rps_wind.mainloop()
-#        return decision
 
     user_image = PhotoImage(
         file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
@@ -158,11 +160,6 @@ def game_wind():
 
     top_label = Label(rps_wind, justify=CENTER, text='05 POINTS TO WIN', background="#f9f7f0", fg="#72cc50", font=(
         'consolas', 20, 'bold'), width=20).grid(row=0, column=0, columnspan=3)
-
-    u_sc = Entry(rps_wind, justify=CENTER, text='yourscore', font=(
-        'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=2)
-    pc_sc = Entry(rps_wind, justify=CENTER, text='pcscore', font=(
-        'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=0)
 
     def rock_show():
         global player
@@ -197,11 +194,8 @@ def game_wind():
         game()
         rps_wind.mainloop()
 
-    Button(rps_wind, text="TRY AGAIN", command=lambda: [
-           rps_wind.destroy(), exit_wind()])
-
     Button(rps_wind, text='ROCK', activebackground='#f9f7f0', background='#f9f7f0', bd=0, fg='#002c3e', activeforeground='#f27777', width=7, height=2, font=('Cooper Black', 15), command=lambda: [rock_show()]
-           ).grid(row=3, column=0, padx=5)  # button padding from window, side from window
+           ).grid(row=3, column=0, padx=5)
 
     Button(rps_wind, text='PAPER', activebackground='#f9f7f0', background='#f9f7f0', bd=0, fg='#002c3e', activeforeground='#f27777',
            width=7, height=2, font=('Cooper Black', 15), command=lambda: [paper_show()]).grid(row=3, column=1)
@@ -214,7 +208,7 @@ def game_wind():
 #####################################################
 
 
-def exit_wind():
+def exit_wind(msg):
     rps_wind = Tk()
     rps_wind.geometry("370x400")
     rps_wind.resizable(False, False)
@@ -227,11 +221,14 @@ def exit_wind():
     Button(rps_wind, image=retry_btn_img, borderwidth=0, compound=TOP,
            command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=80)
 
+    labelf = Label(rps_wind, text=msg, background='#f9f7f0')
+    labelf.place(x=30, y=30)
+
     exit_img = PhotoImage(
         file=r"F:\codsoft_internship\CODSOFT\task_01\exit_btn.png")
     exit_btn_img = exit_img.subsample(3, 3)
     Button(rps_wind, image=exit_btn_img, borderwidth=1, compound=TOP,
-           command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=80)
+           command=lambda: [rps_wind.destroy()]).pack(side=BOTTOM, pady=80)
     rps_wind.mainloop()
 
 
