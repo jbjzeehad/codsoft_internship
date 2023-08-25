@@ -1,6 +1,6 @@
 
 
-# @ Jubayer Bin Jaman | Codsoft
+# @ Jubayer Bin Jaman | CodSoft
 
 
 from tkinter import *
