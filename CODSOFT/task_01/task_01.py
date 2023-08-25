@@ -51,29 +51,28 @@ print("Thank You")
 '''
 
 rps_wind = Tk()
-rps_wind.geometry("600x600")
+rps_wind.geometry("370x400")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
 
 bk_grnd = PhotoImage(
-    file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png")
-
-
+    file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png").subsample(2, 2)
 label1 = Label(rps_wind, image=bk_grnd)
-label1.place(x=0, y=-50)
+
+label1.place(x=30, y=0)
 
 start_img = PhotoImage(
     file=r"F:\codsoft_internship\CODSOFT\task_01\start_btn.png")
-start_btn_img = start_img.subsample(3, 3)
+start_btn_img = start_img.subsample(4, 4)
 Button(rps_wind, font=('Verdana', 20), borderwidth=0, image=start_btn_img, compound=TOP,
-       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM, pady=50,)
+       command=lambda: [rps_wind.destroy(), exit_wind()]).pack(side=BOTTOM, pady=50)
 
 
 def instr_wind():
     print("ok")
     rps_wind = Tk()
-    rps_wind.geometry("500x550")
+    rps_wind.geometry("370x400")
     rps_wind.resizable(False, False)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
@@ -85,59 +84,97 @@ def instr_wind():
 
 def game_wind():
     rps_wind = Tk()
-    rps_wind.geometry("500x550")
+    rps_wind.geometry("370x400")
     rps_wind.resizable(False, False)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
         r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
-    Label(rps_wind, text='pc pic', font=('consolas', 20)).grid(row=0, column=1)
-    Label(rps_wind, text='pcr', font=('consolas', 20)).grid(row=1, column=0)
-    Label(rps_wind, text='pcw', font=('consolas', 20)).grid(row=1, column=1)
-    Label(rps_wind, text='pcp', font=('consolas', 20)).grid(row=1, column=2)
-    Label(rps_wind, text='up', font=('consolas', 20)).grid(row=2, column=0)
-    Label(rps_wind, text='uw', font=('consolas', 20)).grid(row=2, column=1)
-    Label(rps_wind, text='ur', font=('consolas', 20)).grid(row=2, column=2)
+#    bk_grnd = PhotoImage(
+#        file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png")
+#    label1 = Label(rps_wind, image=bk_grnd)
+#    label1.place(x=0, y=-50)
+
+    user_image = PhotoImage(
+        file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
+    user_game_img = user_image.subsample(4, 4)
+    user_gm_lbl = Label(rps_wind, image=user_game_img)
+    user_gm_lbl.grid(row=2, column=1, padx=5, pady=10)
+
+    pc_image = PhotoImage(
+        file="F:\codsoft_internship\CODSOFT\\task_01\\pc_rock_img.png")
+    pc_game_img = pc_image.subsample(4, 4)
+    pc_gm_lbl = Label(rps_wind, image=pc_game_img)
+    pc_gm_lbl.grid(row=1, column=1, padx=5, pady=10)
+
+    top_label = Label(rps_wind, justify=CENTER, text='05 POINTS TO WIN', font=(
+        'consolas', 20), width=20).grid(row=0, column=0, columnspan=3)
+    u_win = Entry(rps_wind, justify=CENTER, text='YOU IN', font=(
+        'consolas', 20), width=4).grid(row=2, column=0)
+    pc_win = Entry(rps_wind, justify=CENTER, text='YOU WIN', font=(
+        'consolas', 20), width=4).grid(row=1, column=2)
+    u_sc = Entry(rps_wind, justify=CENTER, text='YOU WIN', font=(
+        'consolas', 20), width=4).grid(row=2, column=2)
+    pc_sc = Entry(rps_wind, justify=CENTER, text='YOU WIN', font=(
+        'consolas', 20), width=4).grid(row=1, column=0)
+
+    def rock_show():
+        rk_image = PhotoImage(
+            file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
+        rk_img = rk_image.subsample(4, 4)
+        lbl = Label(rps_wind, image=rk_img)
+        lbl.grid(row=2, column=1)
+        rps_wind.mainloop()
+
+    def paper_show():
+        pr_image = PhotoImage(
+            file="F:\codsoft_internship\CODSOFT\\task_01\\paper_img.png")
+        pr_img = pr_image.subsample(4, 4)
+        lbl = Label(rps_wind, image=pr_img)
+        lbl.grid(row=2, column=1)
+        rps_wind.mainloop()
+
+    def scissor_show():
+        sr_image = PhotoImage(
+            file="F:\codsoft_internship\CODSOFT\\task_01\\scissor_img.png")
+        sr_img = sr_image.subsample(4, 4)
+        lbl = Label(rps_wind, image=sr_img)
+        lbl.grid(row=2, column=1)
+        rps_wind.mainloop()
+
     Button(rps_wind, text="TRY AGAIN", command=lambda: [
            rps_wind.destroy(), exit_wind()])
 
-    image1 = PhotoImage(
-        file=r"F:\codsoft_internship\CODSOFT\task_01\rock_img.png")
-    rock_img = image1.subsample(4, 4)
-    Button(rps_wind, text='ROCK', activebackground='green', bd=2, fg='teal', font=('Cooper Black', 15),
-           image=rock_img, compound=TOP).grid(row=3, column=0, padx=10)  # button padding from window, side from window
+    Button(rps_wind, text='ROCK', activebackground='green', bd=1, fg='teal', width=7, height=2, font=('Cooper Black', 15), command=lambda: [rock_show()]
+           ).grid(row=3, column=0, padx=5)  # button padding from window, side from window
 
-    image2 = PhotoImage(
-        file=r"F:\codsoft_internship\CODSOFT\task_01\paper_img.png")
-    paper_img = image2.subsample(4, 4)
-    Button(rps_wind, bd=2, text='PAPER', activebackground='green', fg='orange', font=('Cooper Black', 15),
-           image=paper_img, compound=TOP).grid(row=3, column=1, padx=10)
+    Button(rps_wind, bd=1, text='PAPER', activebackground='green',
+           fg='orange', width=7, height=2, font=('Cooper Black', 15), command=lambda: [paper_show()]).grid(row=3, column=1)
 
-    image3 = PhotoImage(
-        file=r"F:\codsoft_internship\CODSOFT\task_01\scissor_img.png")
-    scissor_img = image3.subsample(4, 4)
-    Button(rps_wind, bd=2, fg='indigo', activebackground='green', text='SCISSOR', font=('Cooper Black', 15),
-           image=scissor_img, compound=TOP).grid(row=3, column=2, padx=10)
+    Button(rps_wind, bd=1, fg='indigo', width=7, height=2, activebackground='green',
+           text='SCISSOR', font=('Cooper Black', 15), command=lambda: [scissor_show()]).grid(row=3, column=2, padx=5)
 
     rps_wind.mainloop()
+
+#####################################################
 
 
 def exit_wind():
     rps_wind = Tk()
-    rps_wind.geometry("500x550")
+    rps_wind.geometry("370x400")
     rps_wind.resizable(False, False)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
         r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
     retry_img = PhotoImage(
         file=r"F:\codsoft_internship\CODSOFT\task_01\retry_btn.png")
-    retry_btn_img = retry_img.subsample(3, 3)
+    retry_btn_img = retry_img.subsample(4, 4)
     Button(rps_wind, image=retry_btn_img, borderwidth=0, compound=TOP,
            command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=80)
 
     exit_img = PhotoImage(
         file=r"F:\codsoft_internship\CODSOFT\task_01\exit_btn.png")
     exit_btn_img = exit_img.subsample(3, 3)
-    Button(rps_wind, image=exit_btn_img, borderwidth=0, compound=TOP,
+    Button(rps_wind, image=exit_btn_img, borderwidth=1, compound=TOP,
            command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=80)
     rps_wind.mainloop()
 
