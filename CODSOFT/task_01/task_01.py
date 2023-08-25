@@ -77,9 +77,39 @@ def game_wind():
     def check(player, pc):
 
         if (player == 1 and pc == 3) or (player == 2 and pc == 1) or (player == 3 and pc == 2):
+
+            u_win = StringVar()
+            u_win.set("WIN")
+            Entry(rps_wind, justify=CENTER, textvariable=u_win, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
+            pc_loss = StringVar()
+            pc_loss.set("LOSS")
+            Entry(rps_wind, justify=CENTER, textvariable=pc_loss, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=2)
+
             return print("YOU WIN")
+
         if (player == 1 and pc == 2) or (player == 2 and pc == 3) or (player == 3 and pc == 1):
+            pc_win = StringVar()
+            pc_win.set("WIN")
+            Entry(rps_wind, justify=CENTER, textvariable=pc_win, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=2)
+            u_loss = StringVar()
+            u_loss.set("LOSS")
+            Entry(rps_wind, justify=CENTER, textvariable=u_loss, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
+
             return print("PC WIN")
+        if (player == pc):
+            pc_draw = StringVar()
+            pc_draw.set("DRAW")
+            Entry(rps_wind, justify=CENTER, textvariable=pc_draw, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=2)
+            u_draw = StringVar()
+            u_draw.set("DRAW")
+            Entry(rps_wind, justify=CENTER, textvariable=u_draw, font=(
+                'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
+
         return print("DRAW")
 
     def game():
@@ -89,12 +119,30 @@ def game_wind():
         random_number = number_generate()
         if random_number == 1:
             print("PC choose: Rock")
+            rk_image = PhotoImage(
+                file="F:\codsoft_internship\CODSOFT\\task_01\pc_rock_img.png")
+            rk_img = rk_image.subsample(4, 4)
+            lbl = Label(rps_wind, image=rk_img, background='#f9f7f0')
+            lbl.grid(row=1, column=1)
+
         elif random_number == 2:
             print("PC choose: Paper")
+            pr_image = PhotoImage(
+                file="F:\codsoft_internship\CODSOFT\\task_01\pc_paper_img.png")
+            pr_img = pr_image.subsample(4, 4)
+            lbl = Label(rps_wind, image=pr_img, background='#f9f7f0')
+            lbl.grid(row=1, column=1)
+
         elif random_number == 3:
             print("PC choose: Scissor")
+            sr_image = PhotoImage(
+                file="F:\codsoft_internship\CODSOFT\\task_01\\pc_scissor_img.png")
+            sr_img = sr_image.subsample(4, 4)
+            lbl = Label(rps_wind, image=sr_img, background='#f9f7f0')
+            lbl.grid(row=1, column=1)
         decision = check(player, random_number)
-        return decision
+        rps_wind.mainloop()
+#        return decision
 
     user_image = PhotoImage(
         file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
@@ -110,10 +158,7 @@ def game_wind():
 
     top_label = Label(rps_wind, justify=CENTER, text='05 POINTS TO WIN', background="#f9f7f0", fg="#72cc50", font=(
         'consolas', 20, 'bold'), width=20).grid(row=0, column=0, columnspan=3)
-    u_win = Entry(rps_wind, justify=CENTER, text='uwin', font=(
-        'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=0)
-    pc_win = Entry(rps_wind, justify=CENTER, text='pcwin', font=(
-        'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=1, column=2)
+
     u_sc = Entry(rps_wind, justify=CENTER, text='yourscore', font=(
         'consolas', 20), width=4, borderwidth=0, state=DISABLED, disabledbackground="#f9f7f0").grid(row=2, column=2)
     pc_sc = Entry(rps_wind, justify=CENTER, text='pcscore', font=(
@@ -138,6 +183,7 @@ def game_wind():
         pr_img = pr_image.subsample(4, 4)
         lbl = Label(rps_wind, image=pr_img, background='#f9f7f0')
         lbl.grid(row=2, column=1)
+        game()
         rps_wind.mainloop()
 
     def scissor_show():
@@ -148,6 +194,7 @@ def game_wind():
         sr_img = sr_image.subsample(4, 4)
         lbl = Label(rps_wind, image=sr_img, background='#f9f7f0')
         lbl.grid(row=2, column=1)
+        game()
         rps_wind.mainloop()
 
     Button(rps_wind, text="TRY AGAIN", command=lambda: [
