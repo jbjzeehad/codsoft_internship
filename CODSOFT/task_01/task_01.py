@@ -6,22 +6,7 @@
 import random
 from tkinter import *
 
-
-'''
-print("Start[1] | Exit[0]")
-choice = int(input())
-if choice == 1:
-    while True:
-        result = game()
-        print(result)
-        print("Try Again ?? >> YES[1] | NO[0]")
-        choice = int(input())
-        if choice == 1:
-            continue
-        else:
-            break
-print("Thank You")
-'''
+# start game
 
 rps_wind = Tk()
 rps_wind.geometry("370x400")
@@ -30,17 +15,22 @@ rps_wind.title("RPS Game")
 rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
 rps_wind.config(bg='#f9f7f0')
 
+# addding bkgrnd image
+
 bk_grnd = PhotoImage(
     file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png").subsample(2, 2)
 label1 = Label(rps_wind, image=bk_grnd, background='#f9f7f0')
-
 label1.place(x=30, y=0)
+
+# start button
 
 start_img = PhotoImage(
     file=r"F:\codsoft_internship\CODSOFT\task_01\start_btn.png")
 start_btn_img = start_img.subsample(4, 4)
 Button(rps_wind, font=('Verdana', 20), borderwidth=0, image=start_btn_img, compound=TOP, background='#f9f7f0', activebackground='#f9f7f0',
        command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=50)
+
+# enter the game
 
 
 def game_wind():
@@ -205,29 +195,32 @@ def game_wind():
 
     rps_wind.mainloop()
 
-#####################################################
+# exit the game
 
 
 def exit_wind(msg):
     rps_wind = Tk()
     rps_wind.geometry("370x400")
-    rps_wind.resizable(False, False)
+    rps_wind.resizable(True, True)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
         r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+    rps_wind.config(bg='#f9f7f0')
+
     retry_img = PhotoImage(
         file=r"F:\codsoft_internship\CODSOFT\task_01\retry_btn.png")
-    retry_btn_img = retry_img.subsample(4, 4)
-    Button(rps_wind, image=retry_btn_img, borderwidth=0, compound=TOP,
-           command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=80)
+    retry_btn_img = retry_img.subsample(3, 3)
+    Button(rps_wind, image=retry_btn_img, background='#f9f7f0', activebackground='#f9f7f0', borderwidth=0, compound=TOP,
+           command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=40)
 
-    labelf = Label(rps_wind, text=msg, background='#f9f7f0')
-    labelf.place(x=30, y=30)
+    labelf = Label(rps_wind, text=msg, background='#f9f7f0', justify=CENTER,
+                   fg="#72cc50", font=('jokerman', 40, 'bold'), width=9)
+    labelf.place(x=30, y=145)
 
     exit_img = PhotoImage(
         file=r"F:\codsoft_internship\CODSOFT\task_01\exit_btn.png")
     exit_btn_img = exit_img.subsample(3, 3)
-    Button(rps_wind, image=exit_btn_img, borderwidth=1, compound=TOP,
+    Button(rps_wind, image=exit_btn_img, background='#f9f7f0', activebackground='#f9f7f0', borderwidth=0, compound=TOP,
            command=lambda: [rps_wind.destroy()]).pack(side=BOTTOM, pady=80)
     rps_wind.mainloop()
 
