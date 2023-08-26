@@ -12,20 +12,21 @@ rps_wind = Tk()
 rps_wind.geometry("370x400")
 rps_wind.resizable(False, False)
 rps_wind.title("RPS Game")
-rps_wind.iconbitmap(r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+rps_wind.iconbitmap(
+    r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\rps_logo.ico")
 rps_wind.config(bg='#f9f7f0')
 
 # addding bkgrnd image
 
 bk_grnd = PhotoImage(
-    file="F:\codsoft_internship\CODSOFT\\task_01\\rps_logo.png").subsample(2, 2)
+    file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\\rps_logo.png").subsample(2, 2)
 label1 = Label(rps_wind, image=bk_grnd, background='#f9f7f0')
 label1.place(x=30, y=0)
 
 # start button
 
 start_img = PhotoImage(
-    file=r"F:\codsoft_internship\CODSOFT\task_01\start_btn.png")
+    file=r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\start_btn.png")
 start_btn_img = start_img.subsample(4, 4)
 Button(rps_wind, font=('Verdana', 20), borderwidth=0, image=start_btn_img, compound=TOP, background='#f9f7f0', activebackground='#f9f7f0',
        command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=BOTTOM, pady=50)
@@ -39,7 +40,7 @@ def game_wind():
     rps_wind.resizable(False, False)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
-        r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+        r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\rps_logo.ico")
     rps_wind.config(bg='#f9f7f0')
 
 # game screen
@@ -130,7 +131,7 @@ def game_wind():
             # for showing rock ,paper, scissor image
 
             rk_image = PhotoImage(
-                file="F:\codsoft_internship\CODSOFT\\task_01\pc_rock_img.png")
+                file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\pc_rock_img.png")
             rk_img = rk_image.subsample(4, 4)
             lbl = Label(rps_wind, image=rk_img, background='#f9f7f0')
             lbl.grid(row=1, column=1)
@@ -138,7 +139,7 @@ def game_wind():
         elif random_number == 2:
 
             pr_image = PhotoImage(
-                file="F:\codsoft_internship\CODSOFT\\task_01\pc_paper_img.png")
+                file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\pc_paper_img.png")
             pr_img = pr_image.subsample(4, 4)
             lbl = Label(rps_wind, image=pr_img, background='#f9f7f0')
             lbl.grid(row=1, column=1)
@@ -146,7 +147,7 @@ def game_wind():
         elif random_number == 3:
 
             sr_image = PhotoImage(
-                file="F:\codsoft_internship\CODSOFT\\task_01\\pc_scissor_img.png")
+                file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\pc_scissor_img.png")
             sr_img = sr_image.subsample(4, 4)
             lbl = Label(rps_wind, image=sr_img, background='#f9f7f0')
             lbl.grid(row=1, column=1)
@@ -157,7 +158,7 @@ def game_wind():
 # for users
 
     user_image = PhotoImage(
-        file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
+        file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\\rock_img.png")
     user_game_img = user_image.subsample(4, 4)
     user_gm_lbl = Label(rps_wind, image=user_game_img, background="#f9f7f0")
     user_gm_lbl.grid(row=2, column=1, padx=5, pady=10)
@@ -165,7 +166,7 @@ def game_wind():
 # for pc
 
     pc_image = PhotoImage(
-        file="F:\codsoft_internship\CODSOFT\\task_01\\pc_rock_img.png")
+        file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\pc_rock_img.png")
     pc_game_img = pc_image.subsample(4, 4)
     pc_gm_lbl = Label(rps_wind, image=pc_game_img, background="#f9f7f0")
     pc_gm_lbl.grid(row=1, column=1, padx=5, pady=10)
@@ -180,7 +181,7 @@ def game_wind():
         global player
         player = 1
         rk_image = PhotoImage(
-            file="F:\codsoft_internship\CODSOFT\\task_01\\rock_img.png")
+            file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\\rock_img.png")
         rk_img = rk_image.subsample(4, 4)
         lbl = Label(rps_wind, image=rk_img, background='#f9f7f0')
         lbl.grid(row=2, column=1)
@@ -193,7 +194,7 @@ def game_wind():
         global player
         player = 2
         pr_image = PhotoImage(
-            file="F:\codsoft_internship\CODSOFT\\task_01\\paper_img.png")
+            file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\paper_img.png")
         pr_img = pr_image.subsample(4, 4)
         lbl = Label(rps_wind, image=pr_img, background='#f9f7f0')
         lbl.grid(row=2, column=1)
@@ -206,7 +207,7 @@ def game_wind():
         global player
         player = 3
         sr_image = PhotoImage(
-            file="F:\codsoft_internship\CODSOFT\\task_01\\scissor_img.png")
+            file="F:\codsoft_internship\CODSOFT\CODSOFT_task_01\scissor_img.png")
         sr_img = sr_image.subsample(4, 4)
         lbl = Label(rps_wind, image=sr_img, background='#f9f7f0')
         lbl.grid(row=2, column=1)
@@ -235,13 +236,13 @@ def exit_wind(msg):
     rps_wind.resizable(True, True)
     rps_wind.title("RPS Game")
     rps_wind.iconbitmap(
-        r"F:\codsoft_internship\CODSOFT\task_01\rps_logo.ico")
+        r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\rps_logo.ico")
     rps_wind.config(bg='#f9f7f0')
 
 # retry button if want to continue: image and action
 
     retry_img = PhotoImage(
-        file=r"F:\codsoft_internship\CODSOFT\task_01\retry_btn.png")
+        file=r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\retry_btn.png")
     retry_btn_img = retry_img.subsample(3, 3)
     Button(rps_wind, image=retry_btn_img, background='#f9f7f0', activebackground='#f9f7f0', borderwidth=0, compound=TOP,
            command=lambda: [rps_wind.destroy(), game_wind()]).pack(side=TOP, pady=40)
@@ -255,7 +256,7 @@ def exit_wind(msg):
 # exit button image and action
 
     exit_img = PhotoImage(
-        file=r"F:\codsoft_internship\CODSOFT\task_01\exit_btn.png")
+        file=r"F:\codsoft_internship\CODSOFT\CODSOFT_task_01\exit_btn.png")
     exit_btn_img = exit_img.subsample(3, 3)
     Button(rps_wind, image=exit_btn_img, background='#f9f7f0', activebackground='#f9f7f0', borderwidth=0, compound=TOP,
            command=lambda: [rps_wind.destroy()]).pack(side=BOTTOM, pady=80)
