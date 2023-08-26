@@ -12,7 +12,7 @@ rpg_wid = Tk()
 rpg_wid.geometry('366x330')
 rpg_wid.resizable(False, False)
 rpg_wid.title('Password Generator')
-rpg_wid.iconbitmap(r'F:\codsoft_internship\CODSOFT\task_03\rpg.ico')
+rpg_wid.iconbitmap(r'F:\codsoft_internship\CODSOFT\CODSOFT_task_03\rpg.ico')
 rpg_wid.config(bg='white')
 
 # for weak password
@@ -66,7 +66,8 @@ length_pass_entry = Entry(
 
 # image on the top
 
-top_img = PhotoImage(file="F:\codsoft_internship\CODSOFT\\task_03\\rpg_bg.png")
+top_img = PhotoImage(
+    file="F:\codsoft_internship\CODSOFT\CODSOFT_task_03\\rpg_bg.png")
 top_bg_img = top_img.subsample(3, 3)
 Label(rpg_wid, image=top_bg_img).grid(
     row=0, column=0, columnspan=3)
