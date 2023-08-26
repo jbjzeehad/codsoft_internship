@@ -11,7 +11,7 @@ cal_sc = Tk()
 cal_sc.geometry("430x435")
 cal_sc.resizable(False, False)
 cal_sc.title('Calculator')
-cal_sc.iconbitmap(r'F:\codsoft_internship\CODSOFT\task_02\cal_bg.ico')
+cal_sc.iconbitmap(r'F:\codsoft_internship\CODSOFT\CODSOFT_task_02\cal_bg.ico')
 cal_sc.config(bg='orange')
 
 # function for the mathematical solution
